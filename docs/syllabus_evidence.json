@@ -1,0 +1,172 @@
+{
+  "fd_closure_A": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "minimal_cover": [
+    [
+      [
+        "A"
+      ],
+      [
+        "B"
+      ]
+    ],
+    [
+      [
+        "B"
+      ],
+      [
+        "C"
+      ]
+    ],
+    [
+      [
+        "A"
+      ],
+      [
+        "D"
+      ]
+    ]
+  ],
+  "candidate_keys": [
+    [
+      "A"
+    ]
+  ],
+  "synthesis_3nf": [
+    [
+      "A",
+      "B",
+      "D"
+    ],
+    [
+      "B",
+      "C"
+    ]
+  ],
+  "conflict_serializable": {
+    "edges": [
+      [
+        "T1",
+        "T2"
+      ]
+    ],
+    "order": [
+      "T1",
+      "T2"
+    ]
+  },
+  "cyclic_schedule": {
+    "edges": [
+      [
+        "T1",
+        "T2"
+      ],
+      [
+        "T2",
+        "T1"
+      ]
+    ],
+    "serializable": false
+  },
+  "view_not_conflict_serializable": {
+    "schedule": [
+      [
+        "T1",
+        "W",
+        "X"
+      ],
+      [
+        "T2",
+        "W",
+        "X"
+      ],
+      [
+        "T1",
+        "W",
+        "X"
+      ]
+    ],
+    "view_equivalent_serial_order": [
+      "T2",
+      "T1"
+    ]
+  },
+  "recovery": {
+    "initial": {
+      "room_capacity": 60,
+      "faculty_limit": 16
+    },
+    "write_ahead_log": [
+      [
+        "T1",
+        "room_capacity",
+        60,
+        65
+      ],
+      [
+        "T2",
+        "faculty_limit",
+        16,
+        20
+      ]
+    ],
+    "committed": [
+      "T1"
+    ],
+    "after_crash_recovery": {
+      "room_capacity": 65,
+      "faculty_limit": 16
+    },
+    "model": "Simplified undo/redo teaching model; not an implementation of InnoDB recovery."
+  },
+  "horizontal_fragment_counts": {
+    "Computer": 12,
+    "Electronics": 12
+  },
+  "vertical_reconstruction": true,
+  "parallel_mapreduce_totals": {
+    "Computer": 24,
+    "Electronics": 24
+  },
+  "parallel_matches_serial": true,
+  "fourth_normal_form": {
+    "cross_product_rows": 4,
+    "day_projection": 2,
+    "room_projection": 2,
+    "lossless": true
+  },
+  "cap_partition_demo": {
+    "initial_replicas": [
+      1,
+      1
+    ],
+    "partitioned_write_on_A": 2,
+    "AP_read_on_B": 1,
+    "CP_read_on_B": "rejected until quorum reachable",
+    "after_reconciliation": [
+      2,
+      2
+    ]
+  },
+  "hdfs_replica_model": {
+    "blocks": {
+      "B1": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "B2": [
+        "N2",
+        "N3",
+        "N1"
+      ]
+    },
+    "failed_node": "N1",
+    "remaining_replicas_per_block": 2
+  },
+  "scope": "Executed local algorithms and simulations, not a multi-machine database or Hadoop deployment."
+}

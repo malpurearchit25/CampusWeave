@@ -1,0 +1,46 @@
+{
+  "mysql_version": "8.4.13",
+  "benchmark_rows": 60000,
+  "query": "SELECT * FROM entries WHERE run_id=501 AND day_of_week=2 AND slot_id=3",
+  "before_access": "ALL",
+  "after_access": "ref",
+  "before_rows": 60000,
+  "after_rows": 1,
+  "before_median_ms": 7.678,
+  "after_median_ms": 0.31,
+  "samples_per_case": 7,
+  "result_count": 1,
+  "before_plan": [
+    {
+      "id": 1,
+      "select_type": "SIMPLE",
+      "table": "entries",
+      "partitions": null,
+      "type": "ALL",
+      "possible_keys": null,
+      "key": null,
+      "key_len": null,
+      "ref": null,
+      "rows": 60000,
+      "filtered": 0.1,
+      "Extra": "Using where"
+    }
+  ],
+  "after_plan": [
+    {
+      "id": 1,
+      "select_type": "SIMPLE",
+      "table": "entries",
+      "partitions": null,
+      "type": "ref",
+      "possible_keys": "idx_run_day_slot",
+      "key": "idx_run_day_slot",
+      "key_len": "15",
+      "ref": "const,const,const",
+      "rows": 1,
+      "filtered": 100.0,
+      "Extra": null
+    }
+  ],
+  "scope": "Isolated synthetic table; not a production performance claim."
+}

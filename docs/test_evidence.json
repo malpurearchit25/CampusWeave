@@ -1,0 +1,265 @@
+{
+  "tests": "51",
+  "errors": "0",
+  "failures": "0",
+  "skipped": "0",
+  "time": "38.632",
+  "date": "2026-11-01",
+  "cases": [
+    {
+      "group": "tests.test_database",
+      "name": "test_complete_seed_generation",
+      "seconds": "0.850"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_atomic_publish_and_audit",
+      "seconds": "0.767"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_empty_run_rejected",
+      "seconds": "0.695"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_missing_session_rejected",
+      "seconds": "0.754"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_insert_trigger_rejects_resource_clash",
+      "seconds": "0.754"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_wrong_lab_type_rejected",
+      "seconds": "0.710"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_unavailable_period_rejected",
+      "seconds": "0.705"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_update_bypass_is_blocked",
+      "seconds": "0.735"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_failed_multiwrite_rolls_back_everything",
+      "seconds": "0.804"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_saved_catalog_is_immutable",
+      "seconds": "0.730"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_cross_semester_resources_and_workload",
+      "seconds": "0.902"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_concurrent_publication_only_one_wins",
+      "seconds": "0.859"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_archiving_preserves_history_and_releases_scope",
+      "seconds": "0.992"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_published_delete_is_rejected",
+      "seconds": "0.835"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_impossible_workload_creates_no_draft",
+      "seconds": "0.747"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_overlapping_time_slots_rejected",
+      "seconds": "0.686"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_practicals_do_not_cross_lunch",
+      "seconds": "0.776"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_eligibility_foreign_key",
+      "seconds": "0.681"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_session_headers_are_normalized_and_immutable",
+      "seconds": "0.785"
+    },
+    {
+      "group": "tests.test_database",
+      "name": "test_division_cannot_be_added_to_published_edition",
+      "seconds": "0.793"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_fd_synthesis_and_parallel_reconstruction",
+      "seconds": "0.619"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_view_checker_distinguishes_multiple_writes_of_same_transaction",
+      "seconds": "0.626"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_closure_handles_cycles_without_looping",
+      "seconds": "0.644"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_warehouse_idempotent_and_excludes_drafts",
+      "seconds": "0.943"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_function_reports_run_hours",
+      "seconds": "0.735"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_syllabus_pages[/lab/theory]",
+      "seconds": "0.698"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_syllabus_pages[/lab/warehouse]",
+      "seconds": "0.649"
+    },
+    {
+      "group": "tests.test_syllabus",
+      "name": "test_actual_mongo_crud_and_web_connectivity",
+      "seconds": "0.857"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/]",
+      "seconds": "0.785"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/faculty]",
+      "seconds": "0.685"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/courses]",
+      "seconds": "0.685"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/divisions]",
+      "seconds": "0.696"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/rooms]",
+      "seconds": "0.680"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/course_offerings]",
+      "seconds": "0.776"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/faculty_courses]",
+      "seconds": "0.681"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/faculty_unavailability]",
+      "seconds": "0.725"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/time_slots]",
+      "seconds": "0.659"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/academic/departments]",
+      "seconds": "0.678"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/generate]",
+      "seconds": "0.660"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/analytics]",
+      "seconds": "0.741"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/lab]",
+      "seconds": "0.715"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_pages_render[/guide]",
+      "seconds": "0.640"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_csrf_rejects_mutation",
+      "seconds": "0.624"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_authentication_required",
+      "seconds": "1.109"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_xss_output_is_escaped",
+      "seconds": "0.708"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_catalog_create_edit_delete",
+      "seconds": "0.835"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_live_savepoint_experiment_leaves_no_rows",
+      "seconds": "0.848"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_publish_route_calls_procedure_and_audit",
+      "seconds": "1.025"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_csv_export",
+      "seconds": "0.758"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_missing_run_404",
+      "seconds": "0.645"
+    },
+    {
+      "group": "tests.test_web",
+      "name": "test_analytics_excludes_draft",
+      "seconds": "0.823"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+digraph A { graph [rankdir=TB,bgcolor="white",pad="0.4",nodesep="0.5"]; node [shape=box,style="rounded,filled",fillcolor="#eef3fa",color="#b7c9df",fontname="Arial",fontsize=13,margin=".2,.2"];edge [color="#5478a1",fontname="Arial",fontsize=10]; browser [label="Faculty browser
+Jinja HTML / CSS / JavaScript"]; server [label="Waitress + Flask
+Session authentication / CSRF
+Allowlisted forms / escaped templates"]; scheduler [label="Bounded backtracking
+Availability / workload / labs
+Published resource reservations"]; database [label="MySQL 8.4 / InnoDB
+15 operational tables + 5 warehouse tables
+Procedures + validation triggers
+Locks / audit / transactions"]; mongo [label="MongoDB 8.0 / authenticated
+Faculty feedback documents
+CRUD / aggregation / indexes"]; mart [label="Dimensional teaching mart
+Four dimensions + period facts
+Idempotent load / OLAP ROLLUP"]; server -> mongo [label="PyMongo"]; database -> mart [label="published snapshot"]; browser -> server [label="HTTP on loopback"];server -> scheduler [label="generate"];server -> database [label="parameterized SQL / CALL"];scheduler -> database [label="atomic persistence"]; }

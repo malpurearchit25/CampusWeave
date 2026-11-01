@@ -1,0 +1,688 @@
+{
+  "statement_count": 50,
+  "statements": [
+    {
+      "sql": "CREATE TABLE lab_resources(id INT PRIMARY KEY,code VARCHAR(20) UNIQUE,capacity INT CHECK(capacity>0),note VARCHAR(100))",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "INSERT INTO lab_resources VALUES(1,'A',60,NULL),(2,'B',90,'Large room')",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "ALTER TABLE lab_resources ADD reviewed BOOLEAN NOT NULL DEFAULT FALSE",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "START TRANSACTION",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "UPDATE lab_resources SET reviewed=TRUE WHERE capacity>=60",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SAVEPOINT after_review",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "DELETE FROM lab_resources WHERE id=2",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "ROLLBACK TO SAVEPOINT after_review",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "ROLLBACK",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SELECT * FROM rooms WHERE capacity BETWEEN 55 AND 90 AND is_active=1 AND room_code LIKE 'A%'",
+      "row_count": 3,
+      "sample": [
+        {
+          "room_id": 1,
+          "room_code": "A101",
+          "room_name": "Classroom A-101",
+          "room_type": "CLASSROOM",
+          "capacity": 70,
+          "is_active": 1
+        },
+        {
+          "room_id": 2,
+          "room_code": "A102",
+          "room_name": "Classroom A-102",
+          "room_type": "CLASSROOM",
+          "capacity": 65,
+          "is_active": 1
+        },
+        {
+          "room_id": 3,
+          "room_code": "A103",
+          "room_name": "Classroom A-103",
+          "room_type": "CLASSROOM",
+          "capacity": 60,
+          "is_active": 1
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM courses WHERE subject_type IN ('THEORY','TUTORIAL') AND course_code NOT LIKE '%LAB%'",
+      "row_count": 6,
+      "sample": [
+        {
+          "course_id": 1,
+          "course_code": "DBMS",
+          "course_name": "Database Management Systems",
+          "department_id": 1,
+          "subject_type": "THEORY",
+          "sessions_per_week": 3,
+          "session_duration_slots": 1,
+          "required_room_type": null
+        },
+        {
+          "course_id": 2,
+          "course_code": "DSA",
+          "course_name": "Data Structures and Algorithms",
+          "department_id": 1,
+          "subject_type": "THEORY",
+          "sessions_per_week": 3,
+          "session_duration_slots": 1,
+          "required_room_type": null
+        },
+        {
+          "course_id": 4,
+          "course_code": "OS",
+          "course_name": "Operating Systems",
+          "department_id": 1,
+          "subject_type": "THEORY",
+          "sessions_per_week": 3,
+          "session_duration_slots": 1,
+          "required_room_type": null
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM rooms WHERE room_type NOT IN ('CLASSROOM') OR capacity>80",
+      "row_count": 4,
+      "sample": [
+        {
+          "room_id": 4,
+          "room_code": "B201",
+          "room_name": "Classroom B-201",
+          "room_type": "CLASSROOM",
+          "capacity": 90,
+          "is_active": 1
+        },
+        {
+          "room_id": 5,
+          "room_code": "LAB1",
+          "room_name": "Computer Lab 1",
+          "room_type": "COMPUTER_LAB",
+          "capacity": 65,
+          "is_active": 1
+        },
+        {
+          "room_id": 6,
+          "room_code": "LAB2",
+          "room_name": "Computer Lab 2",
+          "room_type": "COMPUTER_LAB",
+          "capacity": 60,
+          "is_active": 1
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM faculty WHERE user_id IS NULL",
+      "row_count": 6,
+      "sample": [
+        {
+          "faculty_id": 1,
+          "faculty_code": "F001",
+          "faculty_name": "Asha Sharma",
+          "department_id": 1,
+          "designation": "Assistant Professor",
+          "max_weekly_hours": "16.0",
+          "user_id": null
+        },
+        {
+          "faculty_id": 2,
+          "faculty_code": "F002",
+          "faculty_name": "Rahul Patil",
+          "department_id": 1,
+          "designation": "Associate Professor",
+          "max_weekly_hours": "18.0",
+          "user_id": null
+        },
+        {
+          "faculty_id": 3,
+          "faculty_code": "F003",
+          "faculty_name": "Neha Joshi",
+          "department_id": 1,
+          "designation": "Assistant Professor",
+          "max_weekly_hours": "16.0",
+          "user_id": null
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM lab_resources WHERE note IS NOT NULL",
+      "row_count": 1,
+      "sample": [
+        {
+          "id": 2,
+          "code": "B",
+          "capacity": 90,
+          "note": "Large room",
+          "reviewed": 0
+        }
+      ]
+    },
+    {
+      "sql": "SELECT UPPER(course_code),CONCAT(course_code,' - ',course_name),CHAR_LENGTH(course_name) FROM courses",
+      "row_count": 8,
+      "sample": [
+        {
+          "UPPER(course_code)": "DBMS",
+          "CONCAT(course_code,' - ',course_name)": "DBMS - Database Management Systems",
+          "CHAR_LENGTH(course_name)": 27
+        },
+        {
+          "UPPER(course_code)": "DSA",
+          "CONCAT(course_code,' - ',course_name)": "DSA - Data Structures and Algorithms",
+          "CHAR_LENGTH(course_name)": 30
+        },
+        {
+          "UPPER(course_code)": "DBMSL",
+          "CONCAT(course_code,' - ',course_name)": "DBMSL - Database Management Systems Lab",
+          "CHAR_LENGTH(course_name)": 31
+        }
+      ]
+    },
+    {
+      "sql": "SELECT CURRENT_DATE(),YEAR(CURRENT_DATE()),DATE_ADD(CURRENT_DATE(),INTERVAL 7 DAY),TIME_FORMAT(start_time,'%H:%i') FROM time_slots LIMIT 1",
+      "row_count": 1,
+      "sample": [
+        {
+          "CURRENT_DATE()": "2026-11-01",
+          "YEAR(CURRENT_DATE())": 2026,
+          "DATE_ADD(CURRENT_DATE(),INTERVAL 7 DAY)": "2026-11-08",
+          "TIME_FORMAT(start_time,'%H:%i')": "09:00"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT faculty_name,ROUND(max_weekly_hours/6,2) daily_average,CEIL(max_weekly_hours/6) upper_daily FROM faculty",
+      "row_count": 6,
+      "sample": [
+        {
+          "faculty_name": "Asha Sharma",
+          "daily_average": "2.67",
+          "upper_daily": 3
+        },
+        {
+          "faculty_name": "Rahul Patil",
+          "daily_average": "3.00",
+          "upper_daily": 3
+        },
+        {
+          "faculty_name": "Neha Joshi",
+          "daily_average": "2.67",
+          "upper_daily": 3
+        }
+      ]
+    },
+    {
+      "sql": "SELECT subject_type,COUNT(*) subjects,SUM(sessions_per_week) sessions,AVG(session_duration_slots) duration\nFROM courses GROUP BY subject_type HAVING COUNT(*)>=1 ORDER BY subjects DESC",
+      "row_count": 2,
+      "sample": [
+        {
+          "subject_type": "THEORY",
+          "subjects": 6,
+          "sessions": "17",
+          "duration": "1.0000"
+        },
+        {
+          "subject_type": "PRACTICAL",
+          "subjects": 2,
+          "sessions": "2",
+          "duration": "2.0000"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT faculty_id FROM faculty_courses WHERE course_id=1 UNION SELECT faculty_id FROM faculty_courses WHERE course_id=2",
+      "row_count": 4,
+      "sample": [
+        {
+          "faculty_id": 1
+        },
+        {
+          "faculty_id": 5
+        },
+        {
+          "faculty_id": 2
+        }
+      ]
+    },
+    {
+      "sql": "SELECT faculty_id FROM faculty_courses WHERE course_id=1 UNION ALL SELECT faculty_id FROM faculty_courses WHERE course_id=2",
+      "row_count": 4,
+      "sample": [
+        {
+          "faculty_id": 1
+        },
+        {
+          "faculty_id": 5
+        },
+        {
+          "faculty_id": 2
+        }
+      ]
+    },
+    {
+      "sql": "SELECT faculty_id FROM faculty_courses WHERE course_id=1 INTERSECT SELECT faculty_id FROM faculty_courses WHERE course_id=5",
+      "row_count": 1,
+      "sample": [
+        {
+          "faculty_id": 1
+        }
+      ]
+    },
+    {
+      "sql": "SELECT faculty_id FROM faculty EXCEPT SELECT faculty_id FROM faculty_courses WHERE course_id=1",
+      "row_count": 4,
+      "sample": [
+        {
+          "faculty_id": 2
+        },
+        {
+          "faculty_id": 3
+        },
+        {
+          "faculty_id": 4
+        }
+      ]
+    },
+    {
+      "sql": "SELECT f.faculty_name,d.department_name FROM faculty f JOIN departments d ON f.department_id=d.department_id",
+      "row_count": 6,
+      "sample": [
+        {
+          "faculty_name": "Asha Sharma",
+          "department_name": "Computer Engineering"
+        },
+        {
+          "faculty_name": "Rahul Patil",
+          "department_name": "Computer Engineering"
+        },
+        {
+          "faculty_name": "Neha Joshi",
+          "department_name": "Computer Engineering"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT d.division_name,r.room_code FROM divisions d JOIN rooms r ON r.capacity>=d.student_count",
+      "row_count": 21,
+      "sample": [
+        {
+          "division_name": "SE-A",
+          "room_code": "ELAB1"
+        },
+        {
+          "division_name": "SE-A",
+          "room_code": "LAB2"
+        },
+        {
+          "division_name": "SE-A",
+          "room_code": "LAB1"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT a.faculty_name,b.faculty_name FROM faculty a JOIN faculty b ON a.department_id=b.department_id AND a.faculty_id<b.faculty_id",
+      "row_count": 15,
+      "sample": [
+        {
+          "faculty_name": "Rahul Patil"
+        },
+        {
+          "faculty_name": "Neha Joshi"
+        },
+        {
+          "faculty_name": "Kiran Deshmukh"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT d.department_name,f.faculty_name FROM departments d LEFT JOIN faculty f USING(department_id)",
+      "row_count": 8,
+      "sample": [
+        {
+          "department_name": "Computer Engineering",
+          "faculty_name": "Sanjay More"
+        },
+        {
+          "department_name": "Computer Engineering",
+          "faculty_name": "Priya Kulkarni"
+        },
+        {
+          "department_name": "Computer Engineering",
+          "faculty_name": "Kiran Deshmukh"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM rooms WHERE capacity=(SELECT MAX(capacity) FROM rooms)",
+      "row_count": 1,
+      "sample": [
+        {
+          "room_id": 4,
+          "room_code": "B201",
+          "room_name": "Classroom B-201",
+          "room_type": "CLASSROOM",
+          "capacity": 90,
+          "is_active": 1
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM faculty WHERE faculty_id IN (SELECT faculty_id FROM faculty_courses WHERE course_id=1)",
+      "row_count": 2,
+      "sample": [
+        {
+          "faculty_id": 1,
+          "faculty_code": "F001",
+          "faculty_name": "Asha Sharma",
+          "department_id": 1,
+          "designation": "Assistant Professor",
+          "max_weekly_hours": "16.0",
+          "user_id": null
+        },
+        {
+          "faculty_id": 5,
+          "faculty_code": "F005",
+          "faculty_name": "Priya Kulkarni",
+          "department_id": 1,
+          "designation": "Assistant Professor",
+          "max_weekly_hours": "16.0",
+          "user_id": null
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM rooms WHERE capacity>=ALL(SELECT student_count FROM divisions)",
+      "row_count": 7,
+      "sample": [
+        {
+          "room_id": 1,
+          "room_code": "A101",
+          "room_name": "Classroom A-101",
+          "room_type": "CLASSROOM",
+          "capacity": 70,
+          "is_active": 1
+        },
+        {
+          "room_id": 2,
+          "room_code": "A102",
+          "room_name": "Classroom A-102",
+          "room_type": "CLASSROOM",
+          "capacity": 65,
+          "is_active": 1
+        },
+        {
+          "room_id": 3,
+          "room_code": "A103",
+          "room_name": "Classroom A-103",
+          "room_type": "CLASSROOM",
+          "capacity": 60,
+          "is_active": 1
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM rooms WHERE capacity>=ANY(SELECT student_count FROM divisions)",
+      "row_count": 7,
+      "sample": [
+        {
+          "room_id": 1,
+          "room_code": "A101",
+          "room_name": "Classroom A-101",
+          "room_type": "CLASSROOM",
+          "capacity": 70,
+          "is_active": 1
+        },
+        {
+          "room_id": 2,
+          "room_code": "A102",
+          "room_name": "Classroom A-102",
+          "room_type": "CLASSROOM",
+          "capacity": 65,
+          "is_active": 1
+        },
+        {
+          "room_id": 3,
+          "room_code": "A103",
+          "room_name": "Classroom A-103",
+          "room_type": "CLASSROOM",
+          "capacity": 60,
+          "is_active": 1
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM courses c WHERE EXISTS(SELECT 1 FROM faculty_courses fc WHERE fc.course_id=c.course_id)",
+      "row_count": 8,
+      "sample": [
+        {
+          "course_id": 1,
+          "course_code": "DBMS",
+          "course_name": "Database Management Systems",
+          "department_id": 1,
+          "subject_type": "THEORY",
+          "sessions_per_week": 3,
+          "session_duration_slots": 1,
+          "required_room_type": null
+        },
+        {
+          "course_id": 2,
+          "course_code": "DSA",
+          "course_name": "Data Structures and Algorithms",
+          "department_id": 1,
+          "subject_type": "THEORY",
+          "sessions_per_week": 3,
+          "session_duration_slots": 1,
+          "required_room_type": null
+        },
+        {
+          "course_id": 3,
+          "course_code": "DBMSL",
+          "course_name": "Database Management Systems Lab",
+          "department_id": 1,
+          "subject_type": "PRACTICAL",
+          "sessions_per_week": 1,
+          "session_duration_slots": 2,
+          "required_room_type": "COMPUTER_LAB"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT * FROM faculty f WHERE NOT EXISTS(SELECT 1 FROM course_offerings co WHERE co.faculty_id=f.faculty_id)",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "START TRANSACTION",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "UPDATE lab_resources SET reviewed=TRUE WHERE capacity>=(SELECT MIN(student_count) FROM divisions)",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SELECT * FROM lab_resources",
+      "row_count": 2,
+      "sample": [
+        {
+          "id": 1,
+          "code": "A",
+          "capacity": 60,
+          "note": null,
+          "reviewed": 1
+        },
+        {
+          "id": 2,
+          "code": "B",
+          "capacity": 90,
+          "note": "Large room",
+          "reviewed": 1
+        }
+      ]
+    },
+    {
+      "sql": "ROLLBACK",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "CREATE VIEW lab_room_view AS SELECT id,code,capacity FROM lab_resources WHERE capacity>=50 WITH CHECK OPTION",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "START TRANSACTION",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "UPDATE lab_room_view SET capacity=70 WHERE id=1",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SELECT * FROM lab_resources WHERE id=1",
+      "row_count": 1,
+      "sample": [
+        {
+          "id": 1,
+          "code": "A",
+          "capacity": 70,
+          "note": null,
+          "reviewed": 0
+        }
+      ]
+    },
+    {
+      "sql": "ROLLBACK",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SELECT * FROM faculty_schedule_view LIMIT 3",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SET @statement='SELECT course_code,course_name FROM courses WHERE subject_type=?'",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "PREPARE course_query FROM @statement",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SET @course_type='PRACTICAL'",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "EXECUTE course_query USING @course_type",
+      "row_count": 2,
+      "sample": [
+        {
+          "course_code": "DBMSL",
+          "course_name": "Database Management Systems Lab"
+        },
+        {
+          "course_code": "PYLAB",
+          "course_name": "Python Programming Lab"
+        }
+      ]
+    },
+    {
+      "sql": "DEALLOCATE PREPARE course_query",
+      "row_count": 0,
+      "sample": []
+    },
+    {
+      "sql": "SELECT fn_run_hours(999999) empty_run_hours",
+      "row_count": 1,
+      "sample": [
+        {
+          "empty_run_hours": 0
+        }
+      ]
+    },
+    {
+      "sql": "SELECT TABLE_NAME,IS_UPDATABLE FROM information_schema.VIEWS WHERE TABLE_SCHEMA=DATABASE()",
+      "row_count": 4,
+      "sample": [
+        {
+          "TABLE_NAME": "active_room_catalog",
+          "IS_UPDATABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "faculty_schedule_view",
+          "IS_UPDATABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "lab_room_view",
+          "IS_UPDATABLE": "YES"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT CONSTRAINT_NAME,CONSTRAINT_TYPE FROM information_schema.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA=DATABASE()",
+      "row_count": 69,
+      "sample": [
+        {
+          "CONSTRAINT_NAME": "PRIMARY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "CONSTRAINT_NAME": "approval_history_ibfk_1",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "CONSTRAINT_NAME": "approval_history_ibfk_2",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        }
+      ]
+    }
+  ],
+  "role_grants": [
+    {
+      "Grants for cw_reader_738a31d81b@%": "GRANT USAGE ON *.* TO `cw_reader_738a31d81b`@`%`"
+    },
+    {
+      "Grants for cw_reader_738a31d81b@%": "GRANT SELECT ON `campusweave_course_738a31d81b`.* TO `cw_reader_738a31d81b`@`%`"
+    }
+  ],
+  "view_check_option_rejected": true,
+  "database": "Disposable isolated MySQL schema; removed after execution."
+}

@@ -1,0 +1,109 @@
+{
+  "01_insert_many": 6,
+  "02_find_all": 6,
+  "03_equality": 2,
+  "04_comparison": 5,
+  "05_projection": [
+    {
+      "course": "DBMS",
+      "rating": 5
+    },
+    {
+      "course": "DBMS",
+      "rating": 4
+    }
+  ],
+  "06_array_membership": 2,
+  "07_sort_limit": [
+    5,
+    5
+  ],
+  "08_update_one": 1,
+  "09_update_many": 2,
+  "10_delete_one": 1,
+  "11_distinct": [
+    "DBMS",
+    "DBMSL",
+    "DSA",
+    "PYLAB"
+  ],
+  "12_aggregation": [
+    {
+      "_id": "DBMS",
+      "average": 4.5,
+      "total": 9,
+      "count": 2
+    },
+    {
+      "_id": "DBMSL",
+      "average": 5.0,
+      "total": 5,
+      "count": 1
+    },
+    {
+      "_id": "DSA",
+      "average": 4.0,
+      "total": 8,
+      "count": 2
+    },
+    {
+      "_id": "PYLAB",
+      "average": 4.0,
+      "total": 4,
+      "count": 1
+    }
+  ],
+  "13_create_index": "course_rating",
+  "14_index_explain": {
+    "isCached": false,
+    "stage": "FETCH",
+    "inputStage": {
+      "stage": "IXSCAN",
+      "keyPattern": {
+        "course": 1,
+        "rating": 1
+      },
+      "indexName": "course_rating",
+      "isMultiKey": false,
+      "multiKeyPaths": {
+        "course": [],
+        "rating": []
+      },
+      "isUnique": false,
+      "isSparse": false,
+      "isPartial": false,
+      "indexVersion": 2,
+      "direction": "forward",
+      "indexBounds": {
+        "course": [
+          "[\"DBMS\", \"DBMS\"]"
+        ],
+        "rating": [
+          "[4, inf.0]"
+        ]
+      }
+    }
+  },
+  "15_regex": 3,
+  "16_legacy_mapreduce": [
+    {
+      "_id": "DBMSL",
+      "value": 5.0
+    },
+    {
+      "_id": "DBMS",
+      "value": 9.0
+    },
+    {
+      "_id": "DSA",
+      "value": 8.0
+    },
+    {
+      "_id": "PYLAB",
+      "value": 4.0
+    }
+  ],
+  "mapreduce_matches_aggregation": true,
+  "mongodb_version": "8.0.29",
+  "scope": "Executed in an isolated disposable database; legacy MapReduce is deprecated and included only for syllabus compatibility."
+}

@@ -1,0 +1,9 @@
+{
+  "url": "https://dbfiddle.uk/x6YRxBnX",
+  "engine": "Oracle 21c",
+  "batches": 42,
+  "license": "CC0",
+  "errors": [],
+  "expected_capacity_rejection": true,
+  "cursor_trace_present": true
+}
