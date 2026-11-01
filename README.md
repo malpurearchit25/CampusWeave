@@ -1,14 +1,14 @@
 # CampusWeave
 
-A faculty-friendly timetable planning studio with conflict-aware scheduling, a normalized MySQL database, MongoDB feedback, and an evidence-backed DBMS learning lab.
+A college timetable management system built with Flask, MySQL and MongoDB. Includes conflict detection, faculty and room scheduling, and database laboratory demonstrations.
 
 ![CampusWeave overview](docs/screenshots/overview.jpg)
 
-Navy, blue, ivory and gold give the workspace an academic editorial style. Faculty can maintain assignments, generate a draft, review each division, publish, export CSV and print a timetable without working with SQL directly.
+Coordinators can maintain assignments, generate drafts, review each division, publish timetables, export CSV and print schedules.
 
 ## Run on the prepared Windows PC
 
-Open `D:\Archit\Others\CampusWeave\Start-CampusWeave.cmd`. It starts the local databases and application, then opens **http://127.0.0.1:5050**.
+Open `Start-CampusWeave.cmd` in the project folder. It starts the local databases and application, then opens **http://127.0.0.1:5050**.
 
 Demo login: **admin / CampusDemo!2026**. This is a documented local demonstration account.
 

@@ -16,7 +16,7 @@ Full test names are in `test_evidence.json`. Machine-readable evidence is stored
 
 ## Presentation checklist
 
-1. Start the studio and sign in.
+1. Start the application and sign in.
 2. Show the ER diagram, session/period decomposition and eligibility junction.
 3. Review academic assignments and generate a draft for an unpublished scope.
 4. Show contiguous practicals, then publish and inspect the audit record.
